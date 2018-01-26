@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="demenage5.css" /> 
+	<title>Demenagement 5</title>
+</head>
+<body>
+	<div id="id-page">
+	<header>
+		<h1>Je déménage !!!</h1>
+	</header>
+	<section id="s-carton">
+		<img  class="cl-img-carton" id="id-img-carton1" onclick="f_changecarton(this.id);" src="carton-ferme.jpg" alt="carton" />
+	
+	</section>
+	<footer>
+		<p id="texte">Cliquer sur le carton pour l'ouvrir ou le fermer</p>
+	</footer>
+	</div>
+	
+	
+	
+	<script type="text/javascript">
+
+		debugger;
+
+		var nbcarton=Number(prompt("combien de cartons ?"));
+		var carton=document.getElementById("id-img-carton1");
+		var cartonplus, nomid, j;
+		
+		for (i=1;i<nbcarton;i++)
+		{
+/*			cartonplus=document.createElement("img");
+			j=i+1;
+			nomid= "id-img-carton" + "" + j;
+			cartonplus.id=nomid;
+			cartonplus.className="cl-img-carton";
+			cartonplus.onclick="f_changecarton(this.id);";
+			cartonplus.src="carton-ferme.jpg";
+			cartonplus.alt="carton";
+			cartonplus.onclick="f_changecarton(this.id);";    cette instruction ne marche pas, il faut utiliser setAttribute (ligne suivante)
+			cartonplus.setAttribute("onclick","f_changecarton(this.id);");
+			document.getElementById("s-carton").appendChild(cartonplus);
+*/
+			cartonplus=carton.cloneNode(true);
+			nomid= "id-img-carton" + "";
+			j=i+1;
+			nomid= "id-img-carton" + "" + j;
+			cartonplus.id=nomid
+			document.getElementById("s-carton").appendChild(cartonplus);
+
+		}
+
+
+		function f_changecarton(id)
+		{
+			var carton=document.getElementById(id);
+			var nomfichier=carton.getAttribute("src");
+			if (nomfichier=="carton-ferme.jpg")
+			{
+				carton.src="carton-ouvert.jpg";
+			}
+			else
+			{
+				carton.src="carton-ferme.jpg";
+			}
+		};	
+
+	</script>
+</body>
+
+
+</html>
+
+	
